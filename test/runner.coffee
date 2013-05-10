@@ -10,7 +10,7 @@ setupPipes = (obj) ->
 
 startServer = (cb) ->
   console.log "Starting server"
-  fakeServer = cp.spawn 'coffee', ['./app.coffee']
+  fakeServer = cp.spawn './node_modules/.bin/coffee', ['./app.coffee']
   setupPipes(fakeServer)
   cb()
 
@@ -23,7 +23,8 @@ startCasper = (cb) ->
     console.error "Encountered error while spawning casperjs: #{util.inspect err}"
     throw err
 
-  casper.on 'exit', cb
+  casper.on 'exit', ->
+    cb()
 
 stopServer = (cb) ->
   console.log "Stoping server"
