@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="results">pending</div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $.ajax({
+          url: "/poll",
+          success: function(data) {
+            // comment out the line below to watch the assertions swap in the
+            // casper test file
+            $("#results").text(data);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
