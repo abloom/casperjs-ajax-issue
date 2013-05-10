@@ -6,7 +6,8 @@ casper.start 'http://localhost:3000/ajax.html', ->
 
 casper.waitFor ->
   # /poll is on a 2s timeout
-  @test.assertSelectorHasText '#results', 'successful'
+  results = casper.fetchText('#results')
+  results == 'successful'
 
 casper.run ->
   @test.renderResults true
