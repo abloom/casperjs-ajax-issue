@@ -16,7 +16,7 @@ startServer = (cb) ->
 
 startCasper = (cb) ->
   console.log "Starting CasperJS"
-  casper = cp.spawn 'casperjs', ['test/casper_test.coffee']
+  casper = cp.spawn 'casperjs', ['test', 'test/casper_test.coffee']
   setupPipes(casper)
 
   casper.on 'error', (err) ->
